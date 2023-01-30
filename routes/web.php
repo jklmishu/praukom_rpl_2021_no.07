@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\JurusanKelasController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\WalikelasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,4 +42,16 @@ Route::prefix('/dashboard')->group(function () {
         Route::put('/{kelas}', 'update')->name('kelas.update');
         Route::delete('/{kelas}', 'destroy')->name('kelas.delete');
     });
+
+    Route::prefix('/walikelas')->controller(WalikelasController::class)->group(function () {
+        Route::get('/', 'index')->name('walikelas.index');
+        Route::get('/tambah', 'create')->name('walikelas.create');
+        Route::post('/', 'store')->name('walikelas.store');
+        Route::get('/{walikelas}/edit', 'edit')->name('walikelas.edit');
+        Route::put('/{walikelas}', 'update')->name('walikelas.update');
+        Route::delete('/{walikelas}', 'destroy')->name('walikelas.delete');
+    });
+    
+    Route::get('/tambahwalikelas', [WalikelasController::class, 'tambahwalikelas'])->name('tambahwalikelas');
+    Route::post('/insertdata', [WalikelasController::class, 'insertdata'])->name('insertdata');
 });

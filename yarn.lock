@@ -73,9 +73,9 @@
   "resolved" "https://registry.npmjs.org/delayed-stream/-/delayed-stream-1.0.0.tgz"
   "version" "1.0.0"
 
-"esbuild-windows-64@0.15.16":
-  "integrity" "sha512-HjW1hHRLSncnM3MBCP7iquatHVJq9l0S2xxsHHj4yzf4nm9TU4Z7k4NkeMlD/dHQ4jPlQQhwcMvwbJiOefSuZw=="
-  "resolved" "https://registry.npmjs.org/esbuild-windows-64/-/esbuild-windows-64-0.15.16.tgz"
+"esbuild-windows-32@0.15.16":
+  "integrity" "sha512-zQgWpY5pUCSTOwqKQ6/vOCJfRssTvxFuEkpB4f2VUGPBpdddZfdj8hbZuFRdZRPIVHvN7juGcpgCA/XCF37mAQ=="
+  "resolved" "https://registry.npmjs.org/esbuild-windows-32/-/esbuild-windows-32-0.15.16.tgz"
   "version" "0.15.16"
 
 "esbuild@^0.15.9":

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\JurusanKelasController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\LeveluserController;
 use App\Http\Controllers\WalikelasController;
 
 /*
@@ -42,6 +43,14 @@ Route::prefix('/dashboard')->group(function () {
         Route::put('/{kelas}', 'update')->name('kelas.update');
         Route::delete('/{kelas}', 'destroy')->name('kelas.delete');
     });
+    Route::prefix('/leveluser')->controller(LeveluserController::class)->group(function () {
+        Route::get('/', 'index')->name('leveluser.index');
+        Route::get('/tambah', 'tambahleveluser')->name('tambahleveluser');
+        Route::post('/', 'store')->name('leveluser.store');
+        Route::get('/{leveluser}/edit', 'edit')->name('leveluser.edit');
+        Route::put('/{leveluser}', 'update')->name('leveluser.update');
+        Route::delete('/{leveluser}', 'destroy')->name('leveluser.delete');
+    });
 
     Route::prefix('/walikelas')->controller(WalikelasController::class)->group(function () {
         Route::get('/', 'index')->name('walikelas.index');
@@ -52,6 +61,12 @@ Route::prefix('/dashboard')->group(function () {
         Route::delete('/{walikelas}', 'destroy')->name('walikelas.delete');
     });
     
+    Route::get('/tambahleveluser', [LeveluserController::class, 'tambahleveluser'])->name('tambahleveluser');
+    Route::post('/insertleveluser', [LeveluserController::class, 'insertleveluser'])->name('insertleveluser');
+    Route::get('/tampilkanleveluser/{id}', [LeveluserController::class, 'tampilleveluser'])->name('tampilkanleveluser');
+    Route::post('/updateleveluser/{id}', [LeveluserController::class, 'updateleveluser'])->name('updateleveluser');
+    
+
     Route::get('/tambahwalikelas', [WalikelasController::class, 'tambahwalikelas'])->name('tambahwalikelas');
     Route::post('/insertdata', [WalikelasController::class, 'insertdata'])->name('insertdata');
 });
